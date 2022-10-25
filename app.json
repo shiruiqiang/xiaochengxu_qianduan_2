@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/wo/gerenzhongxin",
+    "pages/wo/dingdanxiangguan/taocanliebiao",
+    "pages/wo/dingdanxiangguan/taocangoumaiye",
+
+
+    "pages/common/template",
+
+    
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

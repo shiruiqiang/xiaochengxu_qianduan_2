@@ -1,0 +1,116 @@
+.items-list .item.normal {
+  background-color: #fff;
+}
+.items-list .item {
+  margin: 20rpx 0;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+
+.items-list .content .sku-info {
+  flex: 1;
+}
+.items-list .err-msg, .items-list .content, .items-list .gifts {
+  padding: 16rpx;
+}
+.items-list .err-msg {
+  font-size: 20rpx;
+  color: #ff8347;
+  border-bottom: 1rpx solid #D9D9D9;
+}
+.hidden {
+  display: none !important;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.items-list .content .check-area {
+  width: 80rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hidden {
+  display: none !important;
+}
+.items-list .content .sku-img {
+  width: 140rpx;
+  height: 140rpx;
+}
+.items-list .content .sku-meta {
+  flex: 1;
+  justify-content: space-between;
+  margin-left: 16rpx;
+  font-size: 28rpx;
+}
+
+.items-list .content .sku-meta .name {
+  line-height: 1.4;
+}
+text {
+  cursor: text;
+}
+.items-list .content .sku-meta .operation {
+  justify-content: space-between;
+  align-content: center;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.items-list .price {
+  align-items: center;
+}
+
+.items-list .price .now-price {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #f45341;
+}
+.items-list .price .old-price {
+  font-size: 24rpx;
+  color: #9e9e9e;
+  text-decoration: line-through;
+  margin-left: 16rpx;
+}
+.items-list .sku-meta .operation .btns {
+  align-items: center;
+}
+
+element.style {
+}
+.items-list .sku-meta .operation .btns .buy-btn {
+  font-size: 54rpx;
+  color: #ff8347;
+}
+.iconf {
+  position: relative;
+  display: inline-block;
+  font-family: 'lsh iconfont';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.items-list .sku-meta .operation .btns .count {
+  margin: 0 10rpx;
+}
+.icon-arrow {
+  display: inline-block;
+  width: 12rpx;
+  height: 21rpx;
+  background-image: url(http://wq.xinxao.com/addons/ss48_match/images/arrow_right.png?1);
+  background-repeat: no-repeat;
+  background-size: 12rpx 21rpx;
+}
