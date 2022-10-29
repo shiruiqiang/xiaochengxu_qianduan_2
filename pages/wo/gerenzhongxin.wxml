@@ -125,7 +125,7 @@
                               <navigator class="item" hoverClass="none" url="/pages/u/info/gift">
                                 <em class="icon-menu-gift"></em>我的礼物
                               </navigator>
-                              <navigator class="item" hoverClass="none" url="/pages/u/verify/index">
+                              <navigator class="item" hoverClass="none" url="/pages/ziliaoshenhe/ziliaoleibiao">
                               <em class="bot icon-menu-renzheng"></em>我的认证</navigator>
                               <navigator class="item" hoverClass="none" url="/pages/u/my/wallet" wx:if="{{ios == 0}}">
                                 <em class="bot icon-menu-qb"></em>我的钱包

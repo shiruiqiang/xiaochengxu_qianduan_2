@@ -1,0 +1,198 @@
+<view class="page-content">
+    <form bindsubmit="submitForm" reportSubmit="true">
+        <view class="weui-cells weui-cells_after-title">
+
+            <block wx:if="{{form.type == 1}}">
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">
+                        <em>*</em>姓名</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input bindinput="getName" class="weui-select weui-select_in-select-after"  placeholder="请输入" placeholderClass="placeholder" type="text" value="{{form.name}}"></input>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">
+                        <em>*</em>身份证</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input bindinput="getICard" class="weui-select weui-select_in-select-after"  placeholder="请输入" placeholderClass="placeholder" type="text" value="{{form.idCard}}"></input>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">
+                        <em>*</em>出生日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="onBirth" mode="date" value="{{form.birth||'2001-01-01'}}">
+                        <view class="weui-select weui-select_in-select-after">{{form.birthDate||'请选择'}}</view>
+                    </picker>
+                </view>
+            </view>
+            </block>
+
+
+
+            <block wx:if="{{form.type == 2}}">
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">
+                        <em>*</em>学历</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="oneducation" range="{{cate.educationData}}" range-key="name" value="0">
+                        <view class="weui-select weui-select_in-select-after">{{form.educationStr ? form.educationStr : '请选择'}}</view>
+                    </picker>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">
+                        毕业院校名称</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input bindinput="getcollegeName" class="weui-select weui-select_in-select-after"  placeholder="请输入" placeholderClass="placeholder" type="text" value="{{form.collegeName}}"></input>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">
+                        大学类型</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker bindchange="onCollegeType" range="{{cate.collegeTypeData}}" range-key="name" value="0">
+                        <view class="weui-select weui-select_in-select-after">{{form.collegeTypeStr ? form.collegeTypeStr : '请选择'}}</view>
+                    </picker>
+                </view>
+            </view>
+            </block>
+
+
+
+            <block wx:if="{{form.type == 3}}">
+                <view class="weui-cell weui-cell_select">
+                    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                        <view class="weui-label">
+                            <em>*</em>婚姻状况</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <picker bindchange="marriageChange" range="{{cate.marriageData}}" range-key="name"  value="0">
+                            <view class="weui-select weui-select_in-select-after">{{form.marriageStr ? form.marriageStr : '请选择'}}</view>
+                        </picker>
+                    </view>
+                </view>
+            </block>
+
+
+            <block wx:if="{{form.type == 4}}">
+                <view class="weui-cell weui-cell_select">
+                    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                        <view class="weui-label">
+                            <em>*</em>买车情况</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <picker bindchange="carChange" range="{{cate.carData}}" range-key="name"
+                                value="0">
+                            <view class="weui-select weui-select_in-select-after">{{form.carStr ? form.carStr : '请选择'}}</view>
+                        </picker>
+                    </view>
+                </view>
+            </block>
+
+
+
+            <block wx:if="{{form.type == 5}}">
+                <view class="weui-cell weui-cell_select">
+                    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                        <view class="weui-label">
+                            <em>*</em>买房情况</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <picker bindchange="houseChange" range="{{cate.houseData}}" range-key="name"
+                                value="0">
+                            <view class="weui-select weui-select_in-select-after">{{form.houseStr ? form.houseStr : '请选择'}}</view>
+                        </picker>
+                    </view>
+                </view>
+            </block>
+
+
+            <block wx:if="{{form.type == 6}}">
+                <view class="weui-cell weui-cell_select">
+                    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                        <view class="weui-label">
+                            <em>*</em>工作认证（职业）</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input bindinput="occupationChange" class="weui-select weui-select_in-select-after"  placeholder="填写职业" placeholderClass="placeholder" type="text" value="{{form.occupation}}"></input>
+                    </view>
+                </view>
+            </block>
+
+
+            <block wx:if="{{form.type == 7}}">
+                <view class="weui-cell weui-cell_select">
+                    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                        <view class="weui-label">
+                            <em>*</em>收入认证</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <picker bindchange="onincome" range="{{cate.incomeData}}" range-key="name"
+                                value="0">
+                            <view class="weui-select weui-select_in-select-after">{{form.incomeStr ? form.incomeStr : '请选择'}}</view>
+                        </picker>
+                    </view>
+                </view>
+            </block>
+
+
+            <view class="weui-cell">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">
+                        <em>*</em>上传照片</view>
+                </view>
+                <view class="weui-uploader__files" id="uploaderFiles">
+                    <view class="weui-uploader__input-box">
+                        <view bindtap="chooseImage2" class="weui-uploader__input"></view>
+                        <!--                                                <view class="weui-uploader__text">上传照片</view>-->
+                    </view>
+                    <block wx:for="{{files}}"  wx:for-item="item">
+                        <block wx:if="{{item}}">
+                            <view bindtap="deleteImage" class="weui-uploader__file" id="{{item}}">
+                                <image class="weui-uploader__img" mode="aspectFill" src="{{item}}"></image>
+
+                            </view>
+                        </block>
+                    </block>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cells weui-cells_after-title" wx:if="{{!!form.id}}">
+
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">审核结果</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <block wx:if="{{form.auditState == 1}}">待处理</block>
+                    <block wx:elif="{{form.auditState == 2}}">审核通过</block>
+                    <block wx:elif="{{form.auditState == 3 }}">审核拒绝</block>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                    <view class="weui-label">审核意见</view>
+                </view>
+                <view class="weui-cell__bd">
+                    {{!!form.opinion ? form.opinion : ""}}
+                </view>
+            </view>
+        </view>
+        <view class="weui-btn-area">
+            <button class="weui-btn" formType="submit" type="primary">提    交</button>
+        </view>
+    </form>
+</view>

@@ -1,0 +1,421 @@
+<!--<template is="actionsheet" />-->
+<!--<template is="toast" />-->
+<!--<template is="picker-city" />-->
+<view class="container">
+    <view class="mod-hd">
+        <view class="tit">基本资料</view>
+        <view class="subtit">姓名不会对外展示，只展示昵称。</view>
+        <view class="">
+        </view></view>
+    <view class="mod-bd">
+        <form bindsubmit="submitForm" reportSubmit="true">
+            <view class="profile-avatar">
+                <view bindtap="uploadAvatar" class="info-photo">
+                    <span wx:for="{{headPortraitUrl}}" class="img" style="background-image:url('{{item}}')"></span>
+                    <block wx:if="{{!form.headPortraitUrl}}">
+                        <i class="txt">上传头像</i>
+                    </block>
+                </view>
+                <!--                        <view class="profile-name">-->
+                <!--                          <view class="text">昵称</view>-->
+                <!--                          <view class="input">-->
+                <!--                            <input bindinput="getNickname" class="input-txt" name="nickname" placeholder="给自己起个好昵称" placeholderClass="placeholder" type="text" value="{{form.nickname}}"></input>-->
+                <!--                            </view>-->
+                <!--                          </view>-->
+            </view>
+            <view class="profile-box">
+                <view class="form-line">
+                    <view class="item {{form.heightString?'active':''}}">
+                        <view class="text">姓名</view>
+                        <view class="input">
+                            <input bindinput="getName" class="input-txt"  placeholder="对外不会展示" placeholderClass="placeholder" type="text" value="{{form.name}}"></input>
+                        </view>
+                    </view>
+                    <view class="item {{form.salaryString?'active':''}}">
+                        <view class="text">昵称</view>
+                        <view class="input">
+                            <input bindinput="getNickname" class="input-txt"  placeholder="给自己起个好昵称" placeholderClass="placeholder" type="text" value="{{form.alias}}"></input>
+                        </view>
+                    </view>
+                </view>
+                <view class="form-line">
+                    <view class="item {{form.gender ?'active':''}}">
+                        <view class="tit">性别</view>
+                        <view class="sex-box">
+                            <view bindtap="onGender"
+                                  class="gender {{form.sex == 0?'on':''}} male" data-id="0">
+                                男</view>
+                            <view bindtap="onGender"
+                                  class="gender {{form.sex == 1 ?'on':''}} female" data-id="1">
+                                女</view>
+                        </view>
+
+                    </view>
+                    <view class="item {{form.birth?'active':''}}">
+                        <picker bindchange="onBirth" mode="date" value="{{form.birthDate||'1996-01-01'}}">
+                            <view class="tit">出生日期</view>
+                            <view class="select">
+                                {{form.birthDate||'请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="form-line">
+                    <view class="item {{form.heightString?'active':''}}">
+                        <picker bindchange="onHeight" range="{{cate.heightData}}"  range-key="name"
+                                value="16">
+                            <view class="tit">身高</view>
+                            <view class="select">
+                                {{form.height ? form.height : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                    <view class="item {{form.salaryString?'active':''}}">
+                        <view class="text">体重（kg）</view>
+                        <view class="input">
+                            <input bindinput="getweight" class="input-txt"  placeholder="请填写" placeholderClass="placeholder" type="text" value="{{form.weight}}"></input>
+                        </view>
+                    </view>
+                </view>
+                <view class="form-line">
+                    <view class="item {{form.educationString?'active':''}}">
+                        <picker bindchange="oneducation" range="{{cate.dictionaries.educationData}}" range-key="name" value="0">
+                            <view class="tit">学历</view>
+                            <view class="select">
+                                {{form.educationStr ? form.educationStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                    <view class="item {{form.salaryString?'active':''}}">
+                        <picker bindchange="onincome" range="{{cate.dictionaries.incomeData}}" range-key="name"
+                                value="0">
+                            <view class="tit">月收入</view>
+                            <view class="select">
+                                {{form.incomeStr ? form.incomeStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="form-line">
+                    <view class="item {{form.educationString?'active':''}}">
+                        <picker mode="region" bindchange="hometownChange"  >
+                            <view class="tit">故乡</view>
+                            <view class="select">
+                                {{form.hometownStr ? form.hometownStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                    <view class="item {{form.workCityString?'active':''}}">
+                        <picker mode="region" bindchange="workplaceChange"  >
+                            <view class="tit">工作地点</view>
+                            <view class="select">
+                                {{form.workplaceStr ? form.workplaceStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="form-line">
+                    <view class="item {{form.marriageString?'active':''}}">
+                        <picker bindchange="marriageChange" range="{{cate.dictionaries.marriageData}}" range-key="name"
+                                value="0">
+                            <view class="tit">婚姻状况</view>
+                            <view class="select">
+                                {{form.marriageStr ? form.marriageStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                    <view class="item {{form.childrenString?'active':''}}">
+                        <picker bindchange="isKidChange" range="{{cate.dictionaries.xq_yes_no_data}}" range-key="name"
+                                value="0">
+                            <view class="tit">有没有小孩</view>
+                            <view class="select">
+                                {{form.isKidStr ? form.isKidStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="form-line">
+                    <view class="item {{form.occupationString?'active':''}}">
+                        <view class="text">职业</view>
+                        <view class="input">
+                            <input bindinput="occupationChange" class="input-txt"
+                                   placeholder="填写职业" placeholderClass="placeholder" type="text" value="{{form.occupation}}"></input>
+                        </view>
+                    </view>
+
+                    <view class="item {{form.wantChildrenString ?'active':''}}">
+                        <picker bindchange="isDemandKidChange" range="{{cate.dictionaries.xq_yes_no_data}}" range-key="name"
+                                value="0">
+                            <view class="tit">是否想要小孩</view>
+                            <view class="select">
+                                {{form.isDemandKidStr ? form.isDemandKidStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="form-line">
+                    <view class="item {{form.vehicleString?'active':''}}">
+                        <picker bindchange="carChange" range="{{cate.dictionaries.carData}}" range-key="name"
+                                value="0">
+                            <view class="tit">买车情况</view>
+                            <view class="select">
+                                {{form.carStr ? form.carStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                    <view class="item {{form.houseString ?'active':''}}">
+                        <picker bindchange="houseChange" range="{{cate.dictionaries.houseData}}" range-key="name"
+                                value="0">
+                            <view class="tit">买房情况</view>
+                            <view class="select">
+                                {{form.houseStr ? form.houseStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+
+                <!--                   <view class="form-tit">联系方式(两者必填一项)</view>-->
+                <view class="form-line">
+                    <view class="item">
+                        <view class="tit">微信号</view>
+                        <view class="input">
+                            <input bindinput="weChatChange" class="input-txt"
+                                   placeholder="填写微信号" placeholderClass="placeholder" type="text"
+                                   value="{{form.wechat}}">
+                            </input>
+                        </view>
+                    </view>
+                    <view class="item {{form.xinyang?'active':''}}">
+                        <picker bindchange="religionChange" range="{{cate.dictionaries.religionData}}" range-key="name"
+                                value="0">
+                            <view class="tit">宗教信仰</view>
+                            <view class="select">
+                                {{form.religionStr ? form.religionStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="form-line">
+                    <view class="item">
+                        <view class="tit">手机号</view>
+                        <view class="input">
+                            <input bindinput="phoneChange" class="input-txt"
+                                   placeholder="填写手机号" placeholderClass="placeholder" type="text"
+                                   value="{{form.phone}}">
+                            </input>
+                        </view>
+                    </view>
+                    <view class="item">
+                        <view class="tit">确认手机号</view>
+                        <view class="input">
+                            <input bindinput="phone2Change" class="input-txt"  placeholder="填写确认手机号"
+                                   placeholderClass="placeholder" type="text" value="{{form.phone2}}">
+                            </input>
+                        </view>
+                    </view>
+
+
+                </view>
+                <view class="form-line">
+                    <view class="item">
+                        <picker bindchange="isSmokingChange" range="{{cate.dictionaries.xq_yes_no_data}}" range-key="name"
+                                value="0">
+                            <view class="tit">是否抽烟</view>
+                            <view class="select">
+                                {{form.isSmokingStr ? form.isSmokingStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                    <view class="item">
+                        <picker bindchange="isDrinkChange" range="{{cate.dictionaries.xq_yes_no_data}}" range-key="name"
+                                value="0">
+                            <view class="tit">是否喝酒</view>
+                            <view class="select">
+                                {{form.isDrinkStr ? form.isDrinkStr : '请选择'}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+
+                <view class="form-line">
+                    <view class="item">
+                        <view class="tit">自我描述</view>
+                        <view class="textarea-wrp">
+                            <textarea bindblur="selfDescriptionBlur" value="{{form.selfDescription}}" auto-height placeholder="请输入" placeholder-style="font-size:32rpx;color:#bbb;" />
+                        </view>
+                    </view>
+                </view>
+                <view class="form-line">
+                    <view class="item">
+                        <view class="tit">兴趣爱好</view>
+                        <view class="textarea-wrp">
+                            <textarea bindblur="interestBlur" value="{{form.interest}}" auto-height placeholder="请输入" placeholder-style="font-size:32rpx;color:#bbb;" />
+                        </view>
+                    </view>
+                </view>
+                <view class="form-line">
+                    <view class="item">
+                        <view class="tit">择偶标准描述</view>
+                        <view class="textarea-wrp">
+                            <textarea bindblur="mateCriterionDescriptionBlur" value="{{form.mateCriterionDescription}}" auto-height  placeholder="请输入"  placeholder-style="font-size:32rpx;color:#bbb;" />
+                        </view>
+                    </view>
+                </view>
+                <view class="form-line">
+                    <view class="item">
+                        <view class="tit">家庭背景</view>
+                        <view class="textarea-wrp">
+                            <textarea bindblur="familyBackgroundBlur" value="{{form.familyBackground}}" auto-height placeholder="请输入" placeholder-style="font-size:32rpx;color:#bbb;" />
+                        </view>
+                    </view>
+                </view>
+
+
+                <view class="form-line">
+                    <view class="item">
+                        <view class="tit">上传照片</view>
+                        <view class="">
+                            <view class="weui-uploader__files" id="uploaderFiles">
+                                <view class="weui-uploader__input-box">
+                                    <view bindtap="chooseImage2" class="weui-uploader__input"></view>
+                                    <!--                                                <view class="weui-uploader__text">上传照片</view>-->
+                                </view>
+                                <block wx:for="{{files}}"  wx:for-item="item">
+                                    <block wx:if="{{item}}">
+                                        <view bindtap="deleteImage" class="weui-uploader__file" id="{{item}}">
+                                            <image class="weui-uploader__img" mode="aspectFill" src="{{item}}"></image>
+
+                                        </view>
+                                    </block>
+                                </block>
+                            </view>
+                        </view>
+                    </view>
+
+
+                </view>
+
+
+                <!--                            <view class="photo-wrap">-->
+                <!--                                <block wx:if="{{user.vip == 1 && (user.vip1 == 0)}}">-->
+                <!--                                    <view class="ui-panel">-->
+                <!--                                        <view class="ui-cell vip-tip">-->
+                <!--                                            <view class="ui-cell-row">-->
+                <!--                                                <view class="ui-cell-bt">-->
+                <!--                                                    最多可以上传{{maxImageNum}}张照片,开通会员即可无限制上传-->
+                <!--                                                </view>-->
+                <!--                                                <view class="ui-cell-ft">-->
+                <!--                                                    <button bindtap="getPayment" class="ui-btn btn-tovip">开通会员</button>-->
+                <!--                                                </view>-->
+                <!--                                            </view>-->
+                <!--                                        </view>-->
+                <!--                                    </view>-->
+                <!--                                </block>-->
+                <!--                                <view class="weui-uploader">-->
+                <!--                                    <view class="weui-uploader__bd">-->
+                <!--                                        <view class="weui-uploader__files" id="uploaderFiles">-->
+                <!--                                            <view class="weui-uploader__input-box">-->
+                <!--                                                <view bindtap="chooseImage" class="weui-uploader__input"></view>-->
+                <!--                                                <view class="weui-uploader__text">上传照片</view>-->
+                <!--                                            </view>-->
+                <!--                                            <block wx:for="{{files}}" wx:key="{{ key }}" wx:for-item="item">-->
+                <!--                                                <block wx:if="{{item}}">-->
+                <!--                                                    <view bindtap="deleteImage" class="weui-uploader__file" id="{{key}}">-->
+                <!--                                                        <image class="weui-uploader__img" mode="aspectFill" src="{{item}}"></image>-->
+
+                <!--                                                    </view>-->
+                <!--                                                </block>-->
+                <!--                                            </block>-->
+                <!--                                        </view>-->
+                <!--                                    </view>-->
+                <!--                                </view>-->
+                <!--                            </view>-->
+
+
+
+
+
+                <view class="weui-btn-area">
+                    <button class="weui-btn" formType="submit" type="primary">提交</button>
+                </view>
+            </view>
+        </form>
+    </view>
+
+    <view class="dialog hint-dialog" wx:if="{{msglogin}}">
+        <view class="weui-mask {{msglogin == 1 ?'weui-animate-fade-in':'weui-animate-fade-out'}}"></view>
+        <view class="dialog-cnt">
+
+            <view class="dialog-content">
+                <!--                               wx:if="{{auth1}}"-->
+
+                <view class="dialog-cnt-tit">手机号授权</view>
+                <view class="dialog-cnt-info">
+                    <view class="img"></view>
+                    <view class="dialog-btn-wrap">
+                        <button bindgetphonenumber="getPhoneNumber" class="weui-btn"
+                                openType="getPhoneNumber">微信绑定手机号注册</button>
+                    </view>
+                    <!--                              <view class="other" style='display:none'>-->
+                    <!--                                  <view bindtap="getPhoneReg" class="login-page" data-state="0">填写手机号注册-->
+                    <!--                                  <i class="i-arrow"></i>-->
+                    <!--                              </view>-->
+                    <!--                          </view>-->
+                </view>
+            </view>
+
+            <!--                    <view class="dialog-content" wx:if="{{auth2}}">-->
+            <!--                        <view class="dialog-cnt-tit">手机号授权</view>-->
+            <!--                        <view class="weui-tab__content">-->
+            <!--                        <form bindsubmit="submitForm_regquick">-->
+            <!--                            <view class="weui-cells weui-cells_after-title">-->
+            <!--                               <view class="weui-cell weui-cell_input mobile">-->
+            <!--                                  <view class="weui-cell__hd">-->
+            <!--                                  <label class="weui-label">-->
+            <!--                                    <span class="cellphone-ico"></span>-->
+            <!--                                  </label>-->
+            <!--                                </view>-->
+            <!--                                <view class="weui-cell__bd">-->
+            <!--                                    <input bindinput="bindMobile" class="weui-input username" name="mobile"-->
+            <!--                                    placeholder="请输入手机号码" type="number" value="{{form.mobile}}"></input>-->
+            <!--                                </view>-->
+            <!--                              </view>-->
+            <!--                              <view class="weui-cell weui-cell_input code">-->
+            <!--                                  <view class="weui-cell__hd">-->
+            <!--                                      <label class="weui-label">-->
+            <!--                                        <span class="dun-ico"></span>-->
+            <!--                                      </label>-->
+            <!--                                  </view>-->
+            <!--                                  <view class="weui-cell__bd">-->
+            <!--                                      <input class="weui-input" name="smsCaptcha" placeholder="请输入验证码"-->
+            <!--                                      type="text" value=""></input>-->
+            <!--                                  </view>-->
+            <!--                                  <view class="weui-cell__ft">-->
+            <!--                                      <button bindtap="getChangeCode"-->
+            <!--                        class="button button-block button-balanced {{mobile.phone_verify_status==true?'disabled':''}}">-->
+            <!--                            {{mobile.phone_verify_text}}-->
+            <!--                                      </button>-->
+            <!--                                  </view>-->
+            <!--                              </view>-->
+            <!--                          </view>-->
+            <!--                        <view class="dialog-btn-wrap">-->
+            <!--                          <button class="weui-btn" formType="submit" type="primary">确定</button>-->
+            <!--                        </view>-->
+            <!--                        <view class="other">-->
+            <!--                          <view bindtap="getPhoneReg2" class="login-page" data-state="1">-->
+            <!--                          返回微信绑定手机号注册-->
+            <!--                          <i class="i-arrow"></i>-->
+            <!--                        </view>-->
+            <!--                      </view>-->
+            <!--                  </form>-->
+
+            <!--                </view>-->
+            <!--              </view>-->
+
+
+
+        </view>
+    </view>
+
+</view>
+

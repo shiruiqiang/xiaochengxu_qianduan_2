@@ -1,0 +1,79 @@
+<view class="ui-panel">
+    <view class="ui-cell">
+        <navigator class="ui-cell-row" hoverClass="none" url="/pages/ziliaoshenhe/ziliaotijiaoye?type_id=1">
+            <view class="ui-cell-hd" >
+                <text class="icon-picture iconfont icon-lanVrenzheng" ></text>
+            </view>
+            <view class="ui-cell-bt">实名认证({{user.mefollow_count}})</view>
+            <view class="ui-cell-ft">
+                <span class="icon-arrow"></span>
+            </view>
+        </navigator>
+    </view>
+    <view class="ui-cell">
+        <navigator class="ui-cell-row" hoverClass="none" url="/pages/ziliaoshenhe/ziliaotijiaoye?type_id=2">
+            <view class="ui-cell-hd" >
+                <text class="icon-picture iconfont icon-xueli" ></text>
+            </view>
+            <view class="ui-cell-bt">学历认证({{user.mefollow_count}})</view>
+            <view class="ui-cell-ft">
+                <span class="icon-arrow"></span>
+            </view>
+        </navigator>
+    </view>
+    <view class="ui-cell">
+        <navigator class="ui-cell-row" hoverClass="none" url="/pages/ziliaoshenhe/ziliaotijiaoye?type_id=3">
+            <view class="ui-cell-hd" >
+                <text class="icon-picture iconfont icon-hunyindengji" ></text>
+            </view>
+            <view class="ui-cell-bt">婚况认证({{user.mefollow_count}})</view>
+            <view class="ui-cell-ft">
+                <span class="icon-arrow"></span>
+            </view>
+        </navigator>
+    </view>
+    <view class="ui-cell">
+        <navigator class="ui-cell-row" hoverClass="none" url="/pages/ziliaoshenhe/ziliaotijiaoye?type_id=4">
+            <view class="ui-cell-hd" >
+                <text class="icon-picture iconfont icon-a-iconcheliang" ></text>
+            </view>
+            <view class="ui-cell-bt">车辆认证({{user.mefollow_count}})</view>
+            <view class="ui-cell-ft">
+                <span class="icon-arrow"></span>
+            </view>
+        </navigator>
+    </view>
+    <view class="ui-cell">
+        <navigator class="ui-cell-row" hoverClass="none" url="/pages/ziliaoshenhe/ziliaotijiaoye?type_id=5">
+            <view class="ui-cell-hd" >
+                <text class="icon-picture iconfont icon-fangchan" ></text>
+            </view>
+            <view class="ui-cell-bt">房产认证({{user.mefollow_count}})</view>
+            <view class="ui-cell-ft">
+                <span class="icon-arrow"></span>
+            </view>
+        </navigator>
+    </view>
+    <view class="ui-cell">
+        <navigator class="ui-cell-row" hoverClass="none" url="/pages/ziliaoshenhe/ziliaotijiaoye?type_id=6">
+            <view class="ui-cell-hd" >
+                <text class="icon-picture iconfont icon-gongzuotai" ></text>
+            </view>
+            <view class="ui-cell-bt">工作认证({{user.mefollow_count}})</view>
+            <view class="ui-cell-ft">
+                <span class="icon-arrow"></span>
+            </view>
+        </navigator>
+    </view>
+    <view class="ui-cell">
+        <navigator class="ui-cell-row" hoverClass="none" url="/pages/ziliaoshenhe/ziliaotijiaoye?type_id=7">
+            <view class="ui-cell-hd" >
+                <text class="icon-picture iconfont icon-caiwutongji" ></text>
+            </view>
+            <view class="ui-cell-bt">收入认证({{user.mefollow_count}})</view>
+            <view class="ui-cell-ft">
+                <span class="icon-arrow"></span>
+            </view>
+        </navigator>
+    </view>
+</view>
