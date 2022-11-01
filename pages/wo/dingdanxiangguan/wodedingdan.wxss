@@ -1,0 +1,156 @@
+page {
+  height: 100%;
+  flex: 1;
+  background-color: #f8f8f8;
+  font-size: 37.44rpx;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+
+
+.order-cell {
+  margin-top: 23.44rpx;
+  background: #fff;
+  padding: 0 16.41rpx;
+  overflow: hidden;
+}
+.cell-status {
+  text-align: right;
+  padding: 23.44rpx 18.74rpx;
+  color: #ff2d4b;
+}
+.hide {
+  display: none;
+}
+.item-content {
+  margin-left: 18rpx;
+  margin-right: 17.84rpx;
+  height: 130rpx;
+  position: relative;
+}
+.content-name {
+  font-size: 23.44rpx;
+  line-height: 32.81rpx;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.content-attr {
+  margin-top: 11.72rpx;
+  font-size: 23.44rpx;
+  color: #a0a0a0;
+  line-height: 32.81rpx;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.content-count {
+  margin-top: 11.72rpx;
+  overflow: hidden;
+  width: 100%;
+}
+.content-amount {
+  float: right;
+}
+
+.good-thumb {
+  width: 175.77rpx;
+  height: 175.77rpx;
+  border: 1px solid #d6d6d6;
+  float: left;
+  margin-left: 18.74rpx;
+}
+.cell-count {
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  overflow: hidden;
+  padding: 23.44rpx 18.74rpx;
+  color: #a0a0a0;
+}
+.count-amount {
+  float: left;
+}
+.count-price {
+  float: right;
+  margin-left: 28.12rpx;
+  color: #ff2b4d;
+}
+.count-price::before {
+  content: "实付：";
+  color: #000;
+}
+.count-carriage {
+  float: right;
+}
+.cell-btn {
+  padding: 17.58rpx 18.74rpx;
+  overflow: hidden;
+}
+.btn-order {
+  width: 164.05rpx !important;
+  height: 65.62rpx;
+  font-size: 28.12rpx;
+  float: right;
+  padding: 0;
+  margin-left: 35.15rpx !important;
+  line-height: 65.62rpx;
+}
+.btn-solid-red {
+  background: #ff2d4b;
+  color: #fff;
+}
+.btn-hollow-gray {
+  border: 1px solid #d6d6d6;
+  background: #fff;
+}
+.orders-wrap {
+  font-size: 28.12rpx;
+  height: 100%;
+}
+.orders {
+  height: 100%;
+}
+
+.order-list {
+  height: 100%;
+}
+
+.empty {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 28.12rpx;
+  color: #a0a0a0;
+  line-height: 48rpx;
+}
+.btn-to-home {
+  margin-top: 35.15rpx;
+  width: 337.48rpx;
+  height: 79.68rpx;
+  line-height: 79.68rpx;
+  border-radius: 11.72rpx;
+  display: inline-block;
+}
+
+.qian {
+  color: red;
+  display: inline;
+}
+
+
+
+
+
+
+
+
+
+
+
+

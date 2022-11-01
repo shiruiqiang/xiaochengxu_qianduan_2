@@ -3,6 +3,7 @@
     "pages/wo/gerenzhongxin",
     "pages/wo/dingdanxiangguan/taocanliebiao",
     "pages/wo/dingdanxiangguan/taocangoumaiye",
+    "pages/wo/dingdanxiangguan/wodedingdan",
     "pages/ziliaoshenhe/ziliaoleibiao",
     "pages/ziliaoshenhe/ziliaotijiaoye",
 
@@ -20,7 +21,9 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh":true,
+    "onReachBottomDistance":50
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

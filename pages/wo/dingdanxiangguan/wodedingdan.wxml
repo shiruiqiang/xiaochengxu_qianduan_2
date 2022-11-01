@@ -1,0 +1,80 @@
+<page-meta page-style="overflow:true" />
+<template name="order-cell">
+    <view class="order-cell">
+        <view class="cell-status">
+            {{state == 1 ? "在有效期" : ""}}
+            {{state == 2 ? "订单完成" : ""}}
+            {{state == 3 ? "已退款" : ""}}
+            {{state == 4 ? "服务暂停" : ""}}
+            {{state == 5 ? "部分退费完成" : ""}}
+            {{state == 6 ? "退费申请中" : ""}}
+            {{state == 7 ? "部分退费申请中" : ""}}
+        </view>
+        <view>
+            <view class="item-content">
+                <view class="content-name"> {{id }} ------  {{gradeName}}</view>
+                <view class="content-attr">订单号：{{orderNo}}</view>
+                <view class="content-count"><view class="qian">￥{{salePrice}}</view><view class="content-amount">下单时间：{{createdate}}</view></view>
+            </view>
+        </view>
+        <block wx:if="{{!!orderDetails && orderDetails.length > 0}}">
+            <view class="cell-count" >
+                <view>套餐如下：</view>
+                <block wx:for="{{orderDetails}}" wx:key="{{item}}" wx:for-item="item" wx:for-index="index">
+                    <view class="count-amount">
+                        {{index + 1 }}、
+                        <block wx:if="{{item.type == 1}}">线下活动</block>
+                        <block wx:elif="{{item.type == 2}}">线上名额</block>
+                        <block wx:elif="{{item.type == 3}}">牵线名额</block>
+                        <block wx:elif="{{item.type == 4}}">一对一服务</block>
+
+                        <block wx:if="{{item.isDateLimit == 0}}">没有时间限制，</block>
+                        <block wx:elif="{{item.isDateLimit == 1}}">有时间限制（{{item.startDate}}到{{item.endDate}}），</block>
+
+                        <block wx:if="{{item.isFrequencyLimit == 0}}">没有次数限制。</block>
+                        <block wx:elif="{{item.isFrequencyLimit == 1}}">有次数限制，一共{{item.frequency}}次剩余{{item.residueFrequency}}次已用{{item.useFrequency}}次。</block>
+
+                    </view>
+                </block>
+                <!--            <view class="count-price">￥{{total_amount}}</view>-->
+                <!--            <view class="count-carriage">运费：<text>￥{{shipping_price}}</text></view>-->
+            </view>
+        </block>
+        <view class="cell-btn" hidden="{{order.isButtonShow}}">
+            <!-- <button class="btn-order btn-solid-red">去支付</button>
+            <button class="btn-order btn-hollow-gray" data-order-id="{{order_sn}}" bindtap="cancalOrder">取消订单</button> -->
+
+            <button class="btn-order btn-solid-red" wx:if="{{ order.orderStatus==='待支付' }}" bindtap="payOrder" data-order-sn="{{order.orderSn}}">去支付</button>
+
+            <button class="btn-order btn-hollow-gray" wx:if="{{ order.orderStatus==='待支付' }}" bindtap="cancelOrder" data-order-sn="{{order.orderSn}}">取消订单</button>
+
+            <button class="btn-order btn-hollow-gray" wx:if="{{ order.orderStatus==='待发货'&&refund_status === '没有售后' }}" bindtap="drawbackOrder" data-order-sn="{{order.subOrderSn}}">申请退款</button>
+
+            <button class="btn-order btn-hollow-gray" wx:if="{{ order.orderStatus==='待收货' }}" bindtap="logistics" data-order-sn="{{order.subOrderSn}}">查看物流</button>
+
+            <button class="btn-order btn-solid-red" wx:if="{{ order.orderStatus==='待收货' }}" bindtap="confirmOrder" data-order-sn="{{order.subOrderSn}}">确认收货</button>
+
+            <button wx:if="{{ order.orderStatus==='交易成功'||order.orderStatus==='交易关闭'||order.orderStatus==='订单关闭'}}" bindtap="order.deleteOrder({ subOrderSn:order.data.sub_order_sn })">删除订单</button>
+        </view>
+    </view>
+</template>
+
+
+<view class="orders-wrap" hidden="{{loading}}">
+<!--    <scroll-view scroll-y="true" class="orders">-->
+        <view class="order-list {{orderList.length===0?'hide':''}}">
+            <block wx:for="{{orderList}}">
+                <template is="order-cell" data="{{...item}}"></template>
+                <view>{{loadMoreData}}</view>
+            </block>
+        </view>
+        <view class="empty {{orderList.length===0?'':'hide'}}">
+            <view>您还没有相关的订单</view>
+            <view>可以去看看有哪些想买的</view>
+<!--            TODO: URL要替换 -->
+            <navigator open-type="switchTab" url="../home/home" hover-class="none" class="btn-to-home btn-solid-red" >随便逛逛</navigator>
+        </view>
+<!--    </scroll-view>-->
+</view>
+<loading hidden="{{!loading}}">正在加载中...</loading>
+

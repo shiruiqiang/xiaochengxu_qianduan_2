@@ -142,6 +142,9 @@
                               <navigator view class="item" hoverClass="none" url="/pages/buy/payment?t=1" wx:if="{{ios == 0}}">
                                 <em class="bot icon-menu-vip1"></em>购买金币
                               </navigator>
+                              <navigator view class="item" hoverClass="none" url="/pages/wo/dingdanxiangguan/wodedingdan">
+                                  <em class="bot icon-menu-vip1"></em>我的订单
+                              </navigator>
                             </view>
                           </view>
                         </view>
