@@ -85,9 +85,9 @@ Page({
           } else {
             var tempArray = this_.data.orderList;
           }
-          var list = this_.data.queryParams.pageNum == 1 ? res.data.rows : res.data.rows.concat(tempArray);
+          var list = this_.data.queryParams.pageNum == 1 ? res.data.rows : tempArray.concat(res.data.rows);
           list = list.length > 0 ? list : [];
-          this_.setData({"orderList": {...list}})
+          this_.setData({"orderList": list })
           this_.setData({"allPages": (res.data.total/this_.data.queryParams.pageSize) +
                 ( (res.data.total % this_.data.queryParams.pageSize) > 0 ? 1 : 0 )})
 
