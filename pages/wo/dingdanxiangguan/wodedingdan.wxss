@@ -143,6 +143,12 @@ page {
   display: inline;
 }
 
+.dibu{
+  height: 100rpx;
+  color: #a0a0a0;
+  text-align:center;
+  line-height: 100rpx;
+}
 
 
 

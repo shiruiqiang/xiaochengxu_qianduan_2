@@ -25,7 +25,7 @@ Page({
     // }],
     queryParams: {
       pageNum: 1,
-      pageSize: 2,
+      pageSize: 10,
       memberId: null,
       goodsType: 1,
       orderByColumn: "createdate",
@@ -33,11 +33,31 @@ Page({
     },
     allPages: 1000,
     loadMoreData: "",
-    orderList: []
+    orderList: [],
+
+
+
+    // hidden:true,
+    // list:[],
+    scrollTop : 0,
+    scrollHeight:0
+
+
   },
   onLoad(options) {
     this.setData({"loading": true});
     var this_ = this;
+
+
+    //   这里要注意，微信的scroll-view必须要设置高度才能监听滚动事件，所以，需要在页面的onLoad事件中给scroll-view的高度赋值
+    wx.getSystemInfo({
+      success:function(res){
+        this_.setData({
+          scrollHeight:res.windowHeight
+        });
+      }
+    });
+
 
     var userinfo = wx.getStorageSync("userinfo")
     if(!!userinfo){
@@ -90,44 +110,87 @@ Page({
           this_.setData({"orderList": list })
           this_.setData({"allPages": (res.data.total/this_.data.queryParams.pageSize) +
                 ( (res.data.total % this_.data.queryParams.pageSize) > 0 ? 1 : 0 )})
-
-          // this_.setData({"orderList": res.data.rows})
-
-          console.log("______________________________________________________   total = " + res.data.total + "  , pageSize = " + this_.data.queryParams.pageSize + "      "
-             + (  (res.data.total/this_.data.queryParams.pageSize) +
-              ( (res.data.total % this_.data.queryParams.pageSize) > 0 ? 1 : 0 )))
         }
       }
     })
   },
-  onPullDownRefresh() {
-    // debugger
+
+
+  //页面滑动到底部
+  bindDownLoad:function(){
     var self = this;
-    setTimeout(function () {
-      if (self.data.queryParams.pageNum < self.data.allPages) {
-        self.setData({
-          "queryParams.pageNum": self.data.queryParams.pageNum + 1
-        });
-        self.initData();
-      } else {
-        self.setData({ loadMoreData: "没有数据了" });
-      }
-    }, 300);
+    if (self.data.queryParams.pageNum < self.data.allPages) {
+      self.setData({
+        "queryParams.pageNum": self.data.queryParams.pageNum + 1
+      });
+      self.initData();
+    } else {
+      self.setData({ loadMoreData: "没有数据了" });
+    }
   },
-  onReachBottom() {
-    debugger
+  scroll:function(event){
+    //该方法绑定了页面滚动时的事件，我这里记录了当前的position.y的值,为了请求数据之后把页面定位到这里来。
+    this.setData({
+      scrollTop : event.detail.scrollTop
+    });
+  },
+  topLoad:function(event){
+    //   该方法绑定了页面滑动到顶部的事件，然后做上拉刷新
+    // debugger
+    this.setData({
+      orderList : [],
+      scrollTop : 0
+    });
+
     var self = this;
-    setTimeout(function () {
-      if (self.data.queryParams.pageNum < self.data.allPages) {
-        self.setData({
-          "queryParams.pageNum": self.data.queryParams.pageNum + 1
-        });
-        self.initData();
-      } else {
-        self.setData({ loadMoreData: "没有数据了" });
-      }
-    }, 300);
+    self.setData({
+      "queryParams.pageNum": 1
+    });
+    self.setData({ loadMoreData: "" });
+    if (self.data.queryParams.pageNum < self.data.allPages) {
+      self.initData();
+    } else {
+      self.setData({ loadMoreData: "没有数据了" });
+    }
   }
+
+
+
+
+
+
+  // onPullDownRefresh() {
+  //   // debugger
+  //   var self = this;
+  //   setTimeout(function () {
+  //     if (self.data.queryParams.pageNum < self.data.allPages) {
+  //       self.setData({
+  //         "queryParams.pageNum": self.data.queryParams.pageNum + 1
+  //       });
+  //       self.initData();
+  //     } else {
+  //       self.setData({ loadMoreData: "没有数据了" });
+  //     }
+  //   }, 300);
+  // },
+  // onReachBottom() {
+  //   debugger
+  //   var self = this;
+  //   setTimeout(function () {
+  //     if (self.data.queryParams.pageNum < self.data.allPages) {
+  //       self.setData({
+  //         "queryParams.pageNum": self.data.queryParams.pageNum + 1
+  //       });
+  //       self.initData();
+  //     } else {
+  //       self.setData({ loadMoreData: "没有数据了" });
+  //     }
+  //   }, 300);
+  // }
+
+
+
+
   // setOrderData(data) {
   //   data.forEach((itm) => {
   //     itm.order = {
