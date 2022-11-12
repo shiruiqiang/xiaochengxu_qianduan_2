@@ -50,7 +50,7 @@
                       </block>
                      
                   </navigator>
-                  <navigator class="addinfo ui-arrowlink" hoverClass="none" url="/pages/u/edit/index">
+                  <navigator class="addinfo ui-arrowlink" hoverClass="none" url="/pages/wo/register/register">
                     资料完整度
                     <em class="percent">{{user.percent}}%</em>
                   </navigator>
