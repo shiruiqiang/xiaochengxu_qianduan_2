@@ -202,30 +202,61 @@
 <!--   footer-bar    -->
 <template name="footer-bar">
   <view class="ui-footer">
-    <form bindsubmit="getLogUrl" data-url="/pages/index/index" reportSubmit="true">
-      <button class="form_button icon index {{curpage=='index'?'on':''}}" formType="submit">
-        <i class="i_sp"></i>
-        <span>推荐</span>
-      </button>
-    </form>
-    <navigator class="icon im {{curpage=='find'?'on':''}}" openType="reLaunch" url="/pages/find/index">
-      <i class="i_sp"></i>
+<!--    <form bindsubmit="getLogUrl" data-url="/pages/index/index" reportSubmit="true">-->
+<!--      <button class="form_button icon index {{curpage=='index'?'on':''}}" formType="submit">-->
+<!--        <i class="i_sp"></i>-->
+<!--        <span>推荐</span>-->
+<!--      </button>-->
+<!--    </form>-->
+<!--    <navigator class="icon im {{curpage=='find'?'on':''}}" openType="reLaunch" url="/pages/find/index">-->
+<!--      <i class="i_sp"></i>-->
+<!--      <span>发现</span>-->
+<!--    </navigator>-->
+<!--    <navigator class="icon act {{curpage=='act'?'on':''}}" openType="reLaunch" url="/pages/activity/list">-->
+<!--      <i class="i_sp"></i>-->
+<!--      <span>活动</span>-->
+<!--    </navigator>-->
+
+    <navigator wx:if="{{curpage !='index'}}" class="form_button icon my" openType="reLaunch" url="/pages/index/index">
+      <text class="i_sp iconfont icon-xihuan"></text>
+      <span>推荐</span>
+    </navigator>
+    <view wx:elif="{{curpage =='index'}}" class="form_button icon my on">
+      <text class="i_sp iconfont icon-xihuan">
+      </text>
+      <span>推荐</span>
+    </view>
+
+    <navigator wx:if="{{curpage !='find'}}" class="form_button icon my" openType="reLaunch" url="/pages/find/index">
+      <text class="i_sp iconfont icon-faxian"></text>
       <span>发现</span>
     </navigator>
-    <navigator class="icon act {{curpage=='act'?'on':''}}" openType="reLaunch" url="/pages/activity/list">
-      <i class="i_sp"></i>
+    <view wx:elif="{{curpage =='find'}}" class="form_button icon my on">
+      <text class="i_sp iconfont icon-faxian">
+      </text>
+      <span>发现</span>
+    </view>
+
+    <navigator wx:if="{{curpage !='act'}}" class="form_button icon my" openType="reLaunch" url="/pages/activity/list">
+      <text class="i_sp iconfont icon-huodong"></text>
       <span>活动</span>
     </navigator>
-    <form bindsubmit="getLogUrl" data-url="/pages/u/index" reportSubmit="true">
-      <button class="form_button icon my {{curpage=='my'?'on':''}}" formType="submit">
-        <i class="i_sp">
-          <block wx:if="{{sp==1}}">
-            <em class="badge badge__type--dot"></em>
-          </block>
-        </i>
-        <span>我</span>
-      </button>
-    </form>
+    <view wx:elif="{{curpage =='act'}}" class="form_button icon my on">
+      <text class="i_sp iconfont icon-huodong">
+      </text>
+      <span>活动</span>
+    </view>
+
+    <navigator wx:if="{{curpage !='my'}}" class="form_button icon my" openType="reLaunch" url="/pages/wo/gerenzhongxin">
+      <text class="i_sp iconfont icon-wode"></text>
+      <span>我</span>
+    </navigator>
+    <view wx:elif="{{curpage =='my'}}" class="form_button icon my on">
+      <text class="i_sp iconfont icon-wode">
+      </text>
+      <span>我</span>
+    </view>
+
   </view>
 </template>
 <!--   kefu    -->
