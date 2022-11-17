@@ -237,7 +237,7 @@
       <span>发现</span>
     </view>
 
-    <navigator wx:if="{{curpage !='act'}}" class="form_button icon my" openType="reLaunch" url="/pages/activity/list">
+    <navigator wx:if="{{curpage !='act'}}" class="form_button icon my" openType="reLaunch" url="/pages/huodong/huodong/huodongleibiao">
       <text class="i_sp iconfont icon-huodong"></text>
       <span>活动</span>
     </navigator>

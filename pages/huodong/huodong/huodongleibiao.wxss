@@ -1,0 +1,32 @@
+page {line-height:1.6;font-family:-apple-system-font,Helvetica Neue,sans-serif}
+.container{ padding-bottom: 108rpx; }
+.weui-tab{position:relative;height:100%}
+.weui-navbar{display:-webkit-box;display:-webkit-flex;display:flex;position:absolute;z-index:500;top:0;width:100%;border-bottom:1rpx solid #ccc}
+.weui-navbar{ border:none; position: fixed; box-shadow: 0 0 12rpx rgba(251, 221, 223, .8); }
+.weui-navbar__item{position:relative;display:block;-webkit-box-flex:1;-webkit-flex:1;flex:1;padding:13px 0;text-align:center;font-size:0}
+.weui-navbar__item.weui-bar__item_on{color:#1aad19}
+.weui-navbar__item{ background-color: #fff; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; padding: 0; height:80rpx; line-height:80rpx; }
+.weui-navbar__item.weui-bar__item_on{ color:#ff677d; }
+.weui-navbar__item.weui-bar__item_on .weui-navbar__title{ color: #ff677d; border-bottom: 2px solid #ff677d; }
+.weui-navbar__title{display:inline-block;font-size:15px;max-width:8em;width:auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal}
+.weui-navbar__title{ display: block; max-width:100%; padding:0 10rpx; position: relative; }
+.weui-tab__panel{box-sizing:border-box;height:100%;padding-top:50px;overflow:auto;-webkit-overflow-scrolling:touch}
+.weui-tab__panel{ overflow: initial; padding-top: 82rpx; }
+.act-empty{width:100%;padding:30rpx;box-sizing:border-box;}
+.act-empty .img{width:100%;}
+.act_list .item{ display: -webkit-flex; display: flex; background-color: #fff; -webkit-flex-direction: column; flex-direction: column; margin-bottom:20rpx; }
+.act_list .item .thumb{ width:100%; position: relative; overflow: hidden; font-size:0; }
+.act_list .item .thumb .img{ width:100%; height: auto; }
+.act_list .item .info{ padding:20rpx; }
+.act_list .item .info .tit{ color:#222; }
+.act_list .item .label-wrap{ font-size:24rpx; line-height: normal; color:#888; padding:10rpx 0 8rpx; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; }
+.act_list .item .label{ display: inline-block; border-radius:2rpx; background:#ff758f; color:#fff; font-size:20rpx; height:26rpx; line-height: 26rpx; margin-right:10rpx; padding: 0 10rpx; box-sizing: border-box; vertical-align: top; position: relative; top:-1rpx; }
+.act_list .item .label.vip{background:#9c4cee;background-image: -webkit-linear-gradient(top left, #ef39c6, #9c4cee);}
+
+
+
+
+
+
+
+
