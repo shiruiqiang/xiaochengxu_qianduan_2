@@ -24,7 +24,7 @@
                     <view class="act_list">
                         <block wx:for="{{list}}" wx:key="item" wx:for-item="item">
 
-                            <view bindtap="getLogin" class="item" data-id="{{item.id}}">
+                            <view bindtap="getLogin" class="item" data-hdxq="{{item}}">
 <!--                                <view class="thumb">-->
 <!--                                    <image class="img" mode="widthFix" src="{{item.cover_img}}"></image>-->
 <!--                                </view>-->

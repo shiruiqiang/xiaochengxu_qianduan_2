@@ -139,5 +139,16 @@ Page({
       }
     })
 
+  },
+  getLogin: function(t) {
+    var e = t.currentTarget.dataset.id;
+    var item = t.currentTarget.dataset.hdxq;
+    // a.WxService.getStorageSync("user") ?
+    wx.navigateTo({url: "/pages/huodong/huodong/huodongxiangqing?param=" + encodeURIComponent(JSON.stringify(item))})
+    //     : (a.WxService.showLoading({
+    //     title: "您还未登录"
+    // }), setTimeout(function() {
+    //     a.WxService.hideLoading(), a.WxService.navigateTo("/pages/register/step/step1")
+    // }, 1e3))
   }
 })

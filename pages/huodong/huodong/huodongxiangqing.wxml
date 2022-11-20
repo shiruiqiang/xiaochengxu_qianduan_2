@@ -1,0 +1,115 @@
+<import  src="../common/template"  />
+<import  src="../../wxParse/wxParse.wxml"  />
+<template is="toast" />
+
+<view class="container">
+    <view class="ui-header">
+<!--        <view class="thumb">-->
+<!--            <span class="img" style="background-image:url('http://wx-img.jhrx.cn/love/20180801/act_empty.png');"></span>-->
+<!--        </view>-->
+        <view class="act_title">
+            <view class="tit">{{act.name}}</view>
+            <view class="label-wrap">
+                <view class="label" wx:if="{{iso == 0}}">{{act.salePrice<=0?'免费':'￥'+act.salePrice}}</view>
+                <view class="label vip" wx:if="{{act.isUseFrequency != 0}}">
+                    <text >VIP {{act.additionPrice<=0?'免费':'￥'+act.additionPrice}} </text>
+<!--                    {{act.act_nums>0?'剩余'+act.act_nums+'次机会':''}}-->
+                </view>
+            </view>
+        </view>
+<!--        <view bindtap="backhome" class="back-home">返回首页</view>-->
+    </view>
+    <view class="ui-panel act_info">
+<!--        <view class="sign_content">-->
+<!--            <view class="sign_count">-->
+<!--                <em>{{act.nums}}</em>-->
+<!--                <view class="txt">人报名</view>-->
+<!--            </view>-->
+<!--            <block wx:if="{{act.users}}">-->
+<!--                <navigator class="sign_userlist" hoverClass="none" url="/pages/activity/userlist?id={{act.id}}">-->
+<!--                    <block wx:for="{{act.users}}" wx:key="{{key}}" wx:for-item="item">-->
+<!--                        <view class="thumb">-->
+<!--                  <span class="img"-->
+<!--                        style="background-image:url('{{item.avatar}}');"></span>-->
+<!--                        </view>-->
+<!--                    </block>-->
+<!--                </navigator>-->
+<!--            </block>-->
+<!--        </view>-->
+        <view class="act_detail">
+            <view class="item_wrap">
+                <view class="item">
+                    <i class="icon date"></i>
+                    活动时间：{{act.activityDate}}
+                </view>
+                <view class="item" data-title="{{act.address}}">
+                    <i class="icon address"></i>
+                    活动地点：
+                        <block wx:if="{{ isSubscribeCondition == 2 }}">只对参加活动的人员展示</block>
+                        <block wx:elif="{{isPlaceShow && activitySubscribe.state == 2}}">{{act.address}}</block>
+                        <block wx:elif="{{!isPlaceShow && activitySubscribe.state == 2 }}"> 活动前一天才会展示 </block>
+                        <block wx:else>审核期间不展示地址</block>
+
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="ui-panel">
+
+        <view class="ui-panel-hd">活动详情</view>
+
+
+        <view class="ui-info act_content">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+        </view>
+    </view>
+
+
+
+
+
+
+
+    <block wx:if="{{act.state == 2}}" >
+        <view class="sign_box_wrap is_apply">
+            <i class="sign_icon"></i>活动已经报满
+        </view>
+    </block>
+    <block wx:elif="{{act.state == 3}}" >
+        <view class="sign_box_wrap is_apply">
+            <i class="sign_icon"></i>活动已结束
+        </view>
+    </block>
+    <block wx:elif="{{act.state == 4}}" >
+        <view class="sign_box_wrap is_apply">
+            <i class="sign_icon"></i>活动取消
+        </view>
+    </block>
+    <block wx:elif="{{act.state == 1}}" >
+
+        <block wx:if="{{isSubscribeCondition == 2}}">
+            <view bindtap="getSignup" class="sign_box_wrap">
+                <i class="sign_icon"></i>我要报名
+            </view>
+        </block>
+        <block wx:if="{{activitySubscribe.state == 1 || activitySubscribe.state == 2}}">
+            <view class="sign_box_wrap is_apply">
+                <i class="sign_icon"></i>申请退费
+            </view>
+        </block>
+        <block wx:if="{{activitySubscribe.state == 4 || activitySubscribe.state == 7}}">
+            <view class="sign_box_wrap is_apply">
+                <i class="sign_icon"></i>撤销退费
+            </view>
+        </block>
+
+    </block>
+
+
+
+
+
+    <template is="button" />
+</view>
+
+<template is="kefu" data="{{showKefuStatus}}"/>
