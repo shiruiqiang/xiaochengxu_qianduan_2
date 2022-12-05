@@ -12,8 +12,7 @@ page {line-height:1.6;font-family:-apple-system-font,Helvetica Neue,sans-serif}
 .weui-navbar__title{ display: block; max-width:100%; padding:0 10rpx; position: relative; }
 .weui-tab__panel{box-sizing:border-box;height:100%;padding-top:50px;overflow:auto;-webkit-overflow-scrolling:touch}
 .weui-tab__panel{ overflow: initial; padding-top: 82rpx; }
-.act-empty{width:100%;padding:30rpx;box-sizing:border-box;}
-.act-empty .img{width:100%;}
+.act-empty{width:100%;padding:30rpx;box-sizing:border-box;text-align:center;}
 .act_list .item{ display: -webkit-flex; display: flex; background-color: #fff; -webkit-flex-direction: column; flex-direction: column; margin-bottom:20rpx; }
 .act_list .item .thumb{ width:100%; position: relative; overflow: hidden; font-size:0; }
 .act_list .item .thumb .img{ width:100%; height: auto; }

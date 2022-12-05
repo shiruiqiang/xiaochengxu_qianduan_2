@@ -23,7 +23,7 @@ Page({
     type:0,
 
     list: [],
-    iso: 0
+    tabTitleContent: "活动筹备中....."
   },
 
   /**
@@ -123,7 +123,7 @@ Page({
     })
 
   },
-  getLogin: function(t) {
+  huodongxiangqing: function(t) {
     // var e = t.currentTarget.dataset.id;
     var item = t.currentTarget.dataset.hdxq;
     // a.WxService.getStorageSync("user") ?
@@ -133,5 +133,22 @@ Page({
     // }), setTimeout(function() {
     //     a.WxService.hideLoading(), a.WxService.navigateTo("/pages/register/step/step1")
     // }, 1e3))
+  },
+  onTabClick: function(t) {
+    var e = t.currentTarget.dataset.id;
+
+    if(e == 0){
+      // 进行中的活动
+      this.initData();
+      this.setData({tabTitleContent: "活动筹备中....."});
+      this.setData({activeIndex: 0});
+
+    }else if(e == 1){
+      // 往期活动
+      this.setData({list: []});
+      this.setData({tabTitleContent: "功能正在开发中....."});
+      this.setData({activeIndex: 1});
+    }
+
   }
 })

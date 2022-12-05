@@ -12,7 +12,7 @@
         <view class="weui-tab__panel">
 
             <view class="act-empty"  wx:if="{{list.length == 0}}">
-                活动筹备中.....
+                {{tabTitleContent}}
 <!--                <image class="img"-->
 <!--                       mode="widthFix"-->
 <!--                       src="http://wx-img.jhrx.cn/love/20180801/act_empty.png"></image>-->
@@ -24,7 +24,7 @@
                     <view class="act_list">
                         <block wx:for="{{list}}" wx:key="item" wx:for-item="item">
 
-                            <view bindtap="getLogin" class="item" data-hdxq="{{item}}">
+                            <view bindtap="huodongxiangqing" class="item" data-hdxq="{{item}}">
 <!--                                <view class="thumb">-->
 <!--                                    <image class="img" mode="widthFix" src="{{item.cover_img}}"></image>-->
 <!--                                </view>-->
