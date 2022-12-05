@@ -32,8 +32,8 @@ var dateUtils = {
     },
     getHour: function (s1, s2) {
         // 获取两个时间的小时差
-        s1 = new Date(s1.replace(/-/g, '/'));
-        s2 = new Date(s2.replace(/-/g, '/'));
+        // s1 = new Date(s1.replace(/-/g, '/'));
+        // s2 = new Date(s2.replace(/-/g, '/'));
         var ms = s2.getTime() - s1.getTime();
         // if (ms < 0) return 0;
         return Math.floor(ms / 1000 / 60 / 60);  //小时

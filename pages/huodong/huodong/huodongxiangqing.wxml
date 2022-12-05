@@ -1,6 +1,6 @@
-<import  src="../common/template"  />
-<import  src="../../wxParse/wxParse.wxml"  />
-<template is="toast" />
+<import  src="../../common/template"  />
+<!--<import  src="../../wxParse/wxParse.wxml"  />-->
+<!--<template is="toast" />-->
 
 <view class="container">
     <view class="ui-header">
@@ -39,13 +39,13 @@
         <view class="act_detail">
             <view class="item_wrap">
                 <view class="item">
-                    <i class="icon date"></i>
+                    <text class="icon iconfont icon-shijian1"></text>
                     活动时间：{{act.activityDate}}
                 </view>
                 <view class="item" data-title="{{act.address}}">
-                    <i class="icon address"></i>
+                    <text class="icon iconfont icon-didian"></text>
                     活动地点：
-                        <block wx:if="{{ isSubscribeCondition == 2 }}">只对参加活动的人员展示</block>
+                        <block wx:if="{{ isSubscribeCondition == 2 }}">预约成功后展示</block>
                         <block wx:elif="{{isPlaceShow && activitySubscribe.state == 2}}">{{act.address}}</block>
                         <block wx:elif="{{!isPlaceShow && activitySubscribe.state == 2 }}"> 活动前一天才会展示 </block>
                         <block wx:else>审核期间不展示地址</block>
@@ -60,9 +60,91 @@
 
 
         <view class="ui-info act_content">
-            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+            <view class="item_wrap2">
+
+                <block wx:if="{{!!act.activity_describe}}">
+                    <block wx:for="{{act.activity_describe}}" wx:key="item" wx:for-item="item">
+                        <view class="item">
+                            <view class="title">{{item.title}}：</view>
+                            <view class="content">
+                                <block wx:for="{{item.contentList}}" wx:key="item_" wx:for-item="item_">
+                                    <view>{{item_}}</view>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                </block>
+
+            </view>
         </view>
     </view>
+
+
+    <block wx:if="{{!!activitySubscribe.id }}">
+        <view class="ui-panel">
+            <view class="ui-panel-hd">报名情况</view>
+            <view class="item_wrap2">
+                <view class="item">
+                    <view class="title">状态：</view>
+                    <view class="content">
+                        <!--
+                            状态，1=提交申请正在审核中、2=审核通过预约成功、3=审核不通过已退费、4=申请退费中（取消预约、审核中）、
+                            5=退费成功（非审核）、6=名额已满、7=申请退费中（取消预约、审核成功）、8=活动取消已退费、
+                            20=支付中(需要审核)、21=支付中(不需要审核)、22=订单取消（没有支付的情况）、23=退费中（审核）、24=退费中（非审核）
+                        -->
+                        <block wx:if="{{activitySubscribe.state == 1 }}">
+                            提交申请资料正在审核中
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 2 }}">
+                            预约成功
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 3 }}">
+                            资料审核不通过已退费
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 4 }}">
+                            申请退费中（取消预约、审核中）
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 5 }}">
+                            退费成功（非审核）
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 6 }}">
+                            名额已满
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 7 }}">
+                            申请退费中（取消预约、审核成功）
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 8 }}">
+                            活动取消已退费
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 20 }}">
+                            支付中(需要审核)
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 21 }}">
+                            支付中(不需要审核)
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 22 }}">
+                            订单取消（没有支付的情况）
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 23 }}">
+                            退费中（审核）
+                        </block>
+                        <block wx:elif="{{activitySubscribe.state == 24 }}">
+                            退费中（非审核）
+                        </block>
+
+                    </view>
+                </view>
+                <view class="item" >
+                    <view class="title">审核意见：</view>
+                    <view class="content">
+                        <view>
+                            {{!!activitySubscribe.opinion ? activitySubscribe.opinion : '' }}
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
 
 
 
@@ -88,17 +170,17 @@
     <block wx:elif="{{act.state == 1}}" >
 
         <block wx:if="{{isSubscribeCondition == 2}}">
-            <view bindtap="getSignup" class="sign_box_wrap">
+            <view bindtap="woyaobaoming" class="sign_box_wrap">
                 <i class="sign_icon"></i>我要报名
             </view>
         </block>
         <block wx:if="{{activitySubscribe.state == 1 || activitySubscribe.state == 2}}">
-            <view class="sign_box_wrap is_apply">
+            <view bindtap="shenqingtuifei" class="sign_box_wrap ">
                 <i class="sign_icon"></i>申请退费
             </view>
         </block>
         <block wx:if="{{activitySubscribe.state == 4 || activitySubscribe.state == 7}}">
-            <view class="sign_box_wrap is_apply">
+            <view bindtap="cexiaotuifei" class="sign_box_wrap ">
                 <i class="sign_icon"></i>撤销退费
             </view>
         </block>
@@ -109,7 +191,7 @@
 
 
 
-    <template is="button" />
+<!--    <template is="button" />-->
 </view>
 
-<template is="kefu" data="{{showKefuStatus}}"/>
+<template is="kefu" />

@@ -22,24 +22,7 @@ Page({
     curpage:'act',
     type:0,
 
-    list: [
-        {
-      cover_img: "http://wx-img.jhrx.cn/love/20180801/act_empty.png",
-      title: "111111111",
-      price: 12.11,
-      vip_price: 10.00,
-      starttime1: "2022-11-11 14:00",
-      endtime1: "2022-11-11 16:00"
-    },
-      {
-        cover_img: "http://wx-img.jhrx.cn/love/20180801/act_empty.png",
-        title: "111111111",
-        price: 12.11,
-        vip_price: 10.00,
-        starttime1: "2022-11-11 14:00",
-        endtime1: "2022-11-11 16:00"
-      }
-    ],
+    list: [],
     iso: 0
   },
 
@@ -141,7 +124,7 @@ Page({
 
   },
   getLogin: function(t) {
-    var e = t.currentTarget.dataset.id;
+    // var e = t.currentTarget.dataset.id;
     var item = t.currentTarget.dataset.hdxq;
     // a.WxService.getStorageSync("user") ?
     wx.navigateTo({url: "/pages/huodong/huodong/huodongxiangqing?param=" + encodeURIComponent(JSON.stringify(item))})
