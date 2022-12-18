@@ -4,64 +4,94 @@
     <view bindtap="getCertUrl" class="item" data-id="{{item.id}}">
       <view class="content-head">
         <view class="item-thumb">
-          <block wx:if="{{item.vip==1}}">
-            <span class="vip-ico"></span>
+          <block wx:if="{{item.memberState==3}}">
+            <span class="vip-ico iconfont icon-huangguan1"></span>
           </block>
-          <span class="item-cover" style="background-image:url('{{item.avatar}}')"></span>
+          <span class="item-cover" style="background-image:url('{{item.headPicture}}')"></span>
         </view>
+
+
         <view class="item-info">
           <view class="tit">
-            <span class="name">{{item.nickname}}  </span>
-            <text style='font-size:12px;color:#fe8278;'> 距离 {{item.dis}}</text>
+            <span class="name">{{item.alias}}  </span>
+<!--            <text style='font-size:12px;color:#fe8278;'> 距离 {{item.dis}}</text>-->
             <span class="tag">
-              <block wx:if="{{item.vip==1}}">
-                <span class="zxhy"></span>
-              </block>
-              <block wx:if="{{item.vip==1}}">
-                <span class="xjhy"></span>
+<!--              <block wx:if="{{item.memberState==3}}">-->
+<!--                <span class="zxhy"></span>-->
+<!--              </block>-->
+              <block wx:if="{{item.memberState==3}}">
+                <span class="xjhy iconfont icon-shimingrenzheng" style="font-size: 24rpx;">已实名认证</span>
               </block>
             </span>
           </view>
           <view class="info">
-            <span>{{item.occupationString}}</span>|
-            <span>{{item.educationString}}</span>|
-            <span>{{item.heightString}}</span>
+            <span wx:if="{{!!item.sexStr}}">{{item.sexStr}}</span>
+            <span wx:if="{{!!item.birthDate}}">{{item.birthDate}}</span>
+            <span wx:if="{{!!item.weight}}">{{item.weight}}岁</span>
           </view>
-          <block wx:if="{{!item.xingname}}">
-            <view class="inner">
-              <view class="notag">Ta还没有添加标签</view>
-            </view>
-          </block>
-          <block wx:if="{{!tem.xingname}}">
-            <view class="inner">
-              <block wx:for="{{item.f_text}}" wx:key="{{index}}" wx:for-item="label">
-                <span class="ui-label">{{label}}</span>
-              </block>
-            </view>
-          </block>
-          <view class="photolist">
-            <block wx:if="{{!item.photolist}}">
-              <view class="photo-empty">
-                <i class="dian"></i>Ta没有更多照片了
-              </view>
-            </block>
-            <block wx:for="{{item.photolist}}" wx:key="{{id}}" wx:for-item="url">
-              <block wx:if="{{url}}">
-                <view class="photo-item">
-                  <span class="item-cover" style="background-image:url('{{url}}')">
-                  </span>
-                </view>
-              </block>
-            </block>
+          <view class="info">
+            <span wx:if="{{!!item.height}}">{{item.height}}</span>
+            <span wx:if="{{!!item.incomeStr}}">{{item.incomeStr}}</span>
+            <!--            <span>{{item.educationStr}}</span>-->
           </view>
+          <view class="info">
+            <span  wx:if="{{!!item.hometownStr}}">{{item.hometownStr}}(故乡)</span>
+          </view>
+          <view class="info">
+            <span  wx:if="{{!!item.workplaceStr}}">{{item.workplaceStr}}(工作地)</span>
+          </view>
+          <view class="info">
+            <span wx:if="{{!!item.educationStr}}">{{item.educationStr}}</span>
+            <span wx:if="{{!!item.marriageStr}}">{{item.marriageStr}}</span>
+          </view>
+          <view class="info">
+            <span wx:if="{{!!item.carStr}}">{{item.carStr}}</span>
+            <span wx:if="{{!!item.houseStr}}">{{item.houseStr}}</span>
+          </view>
+          <view class="info">
+            <span wx:if="{{!!item.occupation}}">{{item.occupation}}</span>
+          </view>
+
+<!--          <view class="info">-->
+<!--            <span>{{item.occupation}}</span>-->
+<!--          </view>-->
+<!--          <block wx:if="{{!item.xingname}}">-->
+<!--            <view class="inner">-->
+<!--              <view class="notag">Ta还没有添加标签</view>-->
+<!--            </view>-->
+<!--          </block>-->
+<!--          <block wx:if="{{!tem.xingname}}">-->
+<!--            <view class="inner">-->
+<!--              <block wx:for="{{item.f_text}}" wx:key="{{index}}" wx:for-item="label">-->
+<!--                <span class="ui-label">{{label}}</span>-->
+<!--              </block>-->
+<!--            </view>-->
+<!--          </block>-->
+<!--          <view class="photolist">-->
+<!--            <block wx:if="{{!item.pictureJson_}}">-->
+<!--              <view class="photo-empty">-->
+<!--                <i class="dian"></i>Ta没有更多照片了-->
+<!--              </view>-->
+<!--            </block>-->
+<!--            <block wx:for="{{item.pictureJson_}}" wx:key="{{id}}" wx:for-item="url">-->
+<!--              <block wx:if="{{url}}">-->
+<!--                <view class="photo-item">-->
+<!--                  <span class="item-cover" style="background-image:url('{{url}}')">-->
+<!--                  </span>-->
+<!--                </view>-->
+<!--              </block>-->
+<!--            </block>-->
+<!--          </view>-->
+
+            <span  bindtap="guanzhudanji" class="guanzhu iconfont icon-guanzhu-yiguanzhu"></span>
         </view>
       </view>
-      <view class="content-text">
-        <i class="text-ico"></i>
-        <view class="text">{{item.introduce ? item.introduce : ''}} 
-        我正寻找 {{item.workCityString}} 年龄在 {{item.year}} 岁左右 ，身高{{item.heightString}} 月收入 {{item.salaryString}} 的
-        {{item.gender == 1 ? '女':'男'}}性 </view>
-      </view>
+<!--      <view class="content-text">-->
+<!--        <i class="text-ico"></i>-->
+<!--        <view class="text">-->
+<!--          {{item.mateCriterionDescription}}-->
+<!--        </view>-->
+<!--      </view>-->
     </view>
   </block>
 
@@ -217,42 +247,42 @@
 <!--      <span>活动</span>-->
 <!--    </navigator>-->
 
-    <navigator wx:if="{{curpage !='index'}}" class="form_button icon my" openType="reLaunch" url="/pages/index/index">
-      <text class="i_sp iconfont icon-xihuan"></text>
+    <navigator wx:if="{{curpage !='index'}}" class="form_button icon my" openType="reLaunch" url="/pages/tuijian/huiyuanzanshiyemian">
+      <text class="i_sp iconfont_subscript icon-xihuan"></text>
       <span>推荐</span>
     </navigator>
     <view wx:elif="{{curpage =='index'}}" class="form_button icon my on">
-      <text class="i_sp iconfont icon-xihuan">
+      <text class="i_sp iconfont_subscript icon-xihuan">
       </text>
       <span>推荐</span>
     </view>
 
     <navigator wx:if="{{curpage !='find'}}" class="form_button icon my" openType="reLaunch" url="/pages/find/index">
-      <text class="i_sp iconfont icon-faxian"></text>
+      <text class="i_sp iconfont_subscript icon-faxian"></text>
       <span>发现</span>
     </navigator>
     <view wx:elif="{{curpage =='find'}}" class="form_button icon my on">
-      <text class="i_sp iconfont icon-faxian">
+      <text class="i_sp iconfont_subscript icon-faxian">
       </text>
       <span>发现</span>
     </view>
 
     <navigator wx:if="{{curpage !='act'}}" class="form_button icon my" openType="reLaunch" url="/pages/huodong/huodong/huodongleibiao">
-      <text class="i_sp iconfont icon-huodong"></text>
+      <text class="i_sp iconfont_subscript icon-huodong"></text>
       <span>活动</span>
     </navigator>
     <view wx:elif="{{curpage =='act'}}" class="form_button icon my on">
-      <text class="i_sp iconfont icon-huodong">
+      <text class="i_sp iconfont_subscript icon-huodong">
       </text>
       <span>活动</span>
     </view>
 
     <navigator wx:if="{{curpage !='my'}}" class="form_button icon my" openType="reLaunch" url="/pages/wo/gerenzhongxin">
-      <text class="i_sp iconfont icon-wode"></text>
+      <text class="i_sp iconfont_subscript icon-wode"></text>
       <span>我</span>
     </navigator>
     <view wx:elif="{{curpage =='my'}}" class="form_button icon my on">
-      <text class="i_sp iconfont icon-wode">
+      <text class="i_sp iconfont_subscript icon-wode">
       </text>
       <span>我</span>
     </view>

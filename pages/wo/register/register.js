@@ -58,10 +58,11 @@ Page({
   },
   onLoad: function(t) {
     this.initValidate();
+    debugger
     var a = this;
-    var def = n.default;
-    a.setData({ cate: def});
-    // a.getCate();
+    // var def = n.default;
+    // a.setData({ cate: def});
+    a.getCate();
 
     var userinfo = wx.getStorageSync("userinfo")
     if(!!userinfo){
@@ -228,6 +229,7 @@ Page({
     // })
   },
   onincome: function(t) {
+    debugger
     this.setData({
       // "cate.salaryActionIndex": t.detail.value,
       "form.income": this.data.cate.dictionaries.incomeData[t.detail.value].value,
@@ -383,6 +385,7 @@ Page({
     })
   },
   getCate: function() {
+    debugger
     for (var t = this.data.cate, a = [{
       value: "",
       name: "请选择"
@@ -391,7 +394,7 @@ Page({
       name: "请选择"
     }], i = 150; i <= 210; i++) a.push({
       value: i,
-      name: i + "cm"
+      name: i + ""
     });
 
 

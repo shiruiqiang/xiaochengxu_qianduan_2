@@ -64,7 +64,7 @@
                     <view class="item {{form.heightString?'active':''}}">
                         <picker bindchange="onHeight" range="{{cate.heightData}}"  range-key="name"
                                 value="16">
-                            <view class="tit">身高</view>
+                            <view class="tit">身高(cm)</view>
                             <view class="select">
                                 {{form.height ? form.height : '请选择'}}
                             </view>
