@@ -355,5 +355,26 @@ Page({
       icon: 'error',
       duration: 2000
     })
+  },
+  getCertUrl: function(t) {
+    var item = t.currentTarget.dataset.item;
+    // console.log(this.data.user);
+    // if (2 != this.data.user.isauth) return n.WxService.showModal({
+    //   title: "提示",
+    //   showCancel: !0,
+    //   cancelText: "取消",
+    //   confirmText: "去认证",
+    //   content: "为保证平台用户真实性以及遵守相关运营规范，请完善您的实名认证信息"
+    // }).then(function(t) {
+    //   return 1 == t.confirm && n.WxService.navigateTo("/pages/u/verify/step1")
+    // });
+    // wx.navigateTo("/pages/index/member?id=", {
+    //   id: a
+    // })
+    // var item = {};//t.currentTarget.dataset.hdxq;
+    // a.WxService.getStorageSync("user") ?
+
+    wx.navigateTo({url: "/pages/tuijian/huiyuanzhanshi/huiyuanzhanshi?param=" + encodeURIComponent(JSON.stringify(item))})
+
   }
 })

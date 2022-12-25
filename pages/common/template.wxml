@@ -1,7 +1,7 @@
 <!--   item1    -->
 <template name="item1">
   <block wx:for="{{list}}" wx:key="{{item}}" wx:for-item="item">
-    <view bindtap="getCertUrl" class="item" data-id="{{item.id}}">
+    <view bindtap="getCertUrl" class="item" data-item="{{item}}">
       <view class="content-head">
         <view class="item-thumb">
           <block wx:if="{{item.memberState==3}}">

@@ -36,7 +36,7 @@ page { font-size: 28rpx; background-color: #fdf4f7; }
 .list-user .item-info .tit{ line-height:1; }
 .list-user .item-info .name { font-size:30rpx; color:#42475c; line-height:1; }
 .list-user .item-info .tag wx-span{ display: inline-block; height: 28rpx; margin-left: 8rpx; margin-top: 7rpx;vertical-align: top; position: relative;background: #fdf4f7; }
-//.list-user .item-info .tag .zxhy{ background-image: url('http://wq.xinxao.com/addons/ss48_match/images/zxhy_icon.png?2'); background-size: 28rpx 28rpx; }
+
 
 .list-user .item-info .info{ color:#666978; font-size:24rpx; margin-top:10rpx; }
 .list-user .item-info .info span{margin-right: 10rpx; background-color: #F8F8F8; padding: 0 5rpx;}
@@ -50,7 +50,7 @@ page { font-size: 28rpx; background-color: #fdf4f7; }
 .list-user .photolist .photo-item .item-cover{border-radius:6rpx;}
 
 .list-user .content-text{display: -webkit-flex;display: flex;margin-top:14rpx;}
-//.list-user .content-text .text-ico{width:40rpx;height:40rpx;margin-right:18rpx;display: inline-block; background: url('http://wq.xinxao.com/addons/ss48_match/images/heart_word_icon.png?1') no-repeat;background-size: 40rpx 40rpx;margin-top:6rpx;}
+
 .list-user .content-text .text{-webkit-flex:1;flex:1;font-size:26rpx;color:#666978;text-align:justify;text-justify:inter-ideograph}
 .weui-select,.weui-input { min-height:88rpx; height:88rpx; line-height:88rpx; border:none; text-align:right; }
 
