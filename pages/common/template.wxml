@@ -277,6 +277,17 @@
       <span>活动</span>
     </view>
 
+    <navigator wx:if="{{curpage !='xiaoxi'}}" class="form_button icon my" openType="reLaunch" url="/pages/xiaoxi/xiaoxiliebiao">
+      <text class="i_sp iconfont_subscript icon-xiaoxi-xiaoxi"></text>
+      <span>消息</span>
+      <text class="iconfont_subscript icon-dian weidushu"></text>
+    </navigator>
+    <view wx:elif="{{curpage =='xiaoxi'}}" class="form_button icon my on">
+      <text class="i_sp iconfont_subscript icon-xiaoxi-xiaoxi">
+      </text>
+      <span>消息</span>
+    </view>
+
     <navigator wx:if="{{curpage !='my'}}" class="form_button icon my" openType="reLaunch" url="/pages/wo/gerenzhongxin">
       <text class="i_sp iconfont_subscript icon-wode"></text>
       <span>我</span>

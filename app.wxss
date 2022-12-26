@@ -416,17 +416,27 @@ wx-button.form_button::after{content:'';width:0;height:0;-webkit-transform:scale
 
 @font-face {
 	font-family: "iconfont"; /* Project id 3767968 */
-	src: url('//at.alicdn.com/t/c/font_3767968_fvha8lqhqrd.woff2?t=1668330379056') format('woff2'),
-	url('//at.alicdn.com/t/c/font_3767968_fvha8lqhqrd.woff?t=1668330379056') format('woff'),
-	url('//at.alicdn.com/t/c/font_3767968_fvha8lqhqrd.ttf?t=1668330379056') format('truetype');
+	src: url('//at.alicdn.com/t/c/font_3767968_cscpjktwqyp.woff2?t=1672045759996') format('woff2'),
+	url('//at.alicdn.com/t/c/font_3767968_cscpjktwqyp.woff?t=1672045759996') format('woff'),
+	url('//at.alicdn.com/t/c/font_3767968_cscpjktwqyp.ttf?t=1672045759996') format('truetype');
 }
 
 .iconfont_subscript {
 	font-family: "iconfont" !important;
-	font-size: 16px;
+	font-size: 42rpx;
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xiaoxi-xiaoxi:before {
+	content: "\e60f";
+	font-size: 36rpx;
+}
+
+.icon-dian:before {
+	content: "\e608";
+	color: red;
 }
 
 .icon-xihuan:before {
@@ -443,6 +453,13 @@ wx-button.form_button::after{content:'';width:0;height:0;-webkit-transform:scale
 
 .icon-huodong:before {
 	content: "\e60e";
+}
+
+.form_button .weidushu{
+	position:absolute;
+	left:25rpx;
+	top:-115rpx;
+	font-size: 50rpx;
 }
 
 

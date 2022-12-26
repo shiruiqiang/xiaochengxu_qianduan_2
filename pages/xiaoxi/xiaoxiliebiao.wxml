@@ -1,0 +1,24 @@
+<import src="../common/template" />
+
+<block wx:for="{{usersList}}" wx:for-item="user">
+    <view class="userItem" bindtap="chat">
+        <view class="pic">
+            <text class="touxiang iconfont icon-ren"></text>
+            <text class="weidushu iconfont icon-dian"></text>
+        </view>
+        <view class="xiaoxiti">
+            <view class="dingbu">
+                <view class="name">
+                    {{user.name}}
+                </view>
+                <view class="time">{{user.time}}</view>
+            </view>
+            <view class="dibu">
+                <text>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</text>
+            </view>
+        </view>
+    </view>
+</block>
+
+<template is="kefu"  />
+<template is="footer-bar" data="{{curpage}}" />
