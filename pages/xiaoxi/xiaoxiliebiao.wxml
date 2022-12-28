@@ -1,23 +1,34 @@
 <import src="../common/template" />
 
 <block wx:for="{{usersList}}" wx:for-item="user">
-    <view class="userItem" bindtap="chat">
-        <view class="pic">
-            <text class="touxiang iconfont icon-ren"></text>
-            <text class="weidushu iconfont icon-dian"></text>
-        </view>
-        <view class="xiaoxiti">
-            <view class="dingbu">
-                <view class="name">
-                    {{user.name}}
+
+
+<view class = "top">
+        <movable-area>
+            <movable-view out-of-bounds="true" direction="horizontal" x="{{user.xmove}}" inertia="true"
+                          data-index="{{index}}" bindtouchstart="handleTouchStart" bindtouchend="handleTouchEnd"bindchange="handleMovableChange">
+                <view class="userItem" bindtap="chat">
+                <view class="pic">
+                    <text class="touxiang iconfont icon-ren"></text>
+                    <text class="weidushu iconfont icon-dian"></text>
                 </view>
-                <view class="time">{{user.time}}</view>
-            </view>
-            <view class="dibu">
-                <text>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</text>
-            </view>
-        </view>
+                <view class="xiaoxiti">
+                    <view class="dingbu">
+                        <view class="name">
+                            {{user.name}}
+                        </view>
+                        <view class="time">{{user.time}}</view>
+                    </view>
+                    <view class="dibu">
+                        <text>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</text>
+                    </view>
+                </view>
+                </view>
+            </movable-view>
+        </movable-area>
+        <view class="movable_delete_btn" data-id="{{user.id}}" bindtap="handleDelete">删除</view>
     </view>
+
 </block>
 
 <template is="kefu"  />

@@ -1,10 +1,11 @@
 
 .userItem{
-  height:80rpx;
+  height:100rpx;
   padding:5px 10px;
   display: flex;
   border-bottom:1px solid #F0F0F0;
   flex-direction:row;
+  box-sizing: border-box;
 }
 
 .xiaoxiti{
@@ -18,15 +19,16 @@
   display: flex;
   flex-direction:row;
   height: 40rpx;
+  line-height: 40rpx;
 }
 
 .xiaoxiti .dibu{
 
-  padding-top: 8rpx;
+
   color: #666978;
   font-size: 24rpx;
   height: 40rpx;
-
+  line-height: 40rpx;
 }
 
 .xiaoxiti .dibu text{
@@ -92,6 +94,53 @@
   content: "\e7a5";
   color: red;
   font-size: 60rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.top{
+  width: 100%;
+  height: 100rpx;
+  line-height:100rpx;
+  display: flex;
+  /* 添加此属性 不会划出界面 */
+  overflow-x: hidden
+}
+movable-view{
+  width: 750rpx;
+  height: 100rpx;
+  background: #FFFFFF;
+  line-height:100rpx;
+
+}
+movable-area{
+  height: 100rpx;
+  line-height:100rpx;
+  width: 750rpx;
+}
+.movable_delete_btn {
+  width: 115rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: red;
+  border-top-right-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  text-align:center;
 }
 
 

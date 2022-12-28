@@ -1,0 +1,98 @@
+
+.talk{
+  background-color: #f1f0f6;
+  height: 100%;
+  margin: auto;
+  padding: 10rpx 2%  10rpx 2%;
+  box-sizing: border-box;
+}
+
+.people{margin:20rpx 0 }
+
+.headimg_other{ width:80rpx; height: 80rpx; background-color: #eeeeee; display: inline-block;}
+.speak_other{ background-color:white; padding: 20rpx 10rpx; border-radius:10rpx; position: relative;  margin-left: 20rpx; margin-top: 10rpx; display: inline-block;
+}
+
+.headimg_me{ width: 80rpx; height: 80rpx; background-color: #eeeeee;display: inline-block; }
+.speak_me{ background-color:#a0e75a; padding: 20rpx 10rpx; border-radius:10rpx; position: relative; top: 10rpx ; float:right;
+  margin-right: 20rpx ;
+  display: inline-block;
+}
+
+.send{height: 118rpx; line-height: 80rpx ;  background-color:#f4f4f4;  width: 100%;  padding: 20rpx 5%; box-sizing: border-box;    border: #e0e0e0 solid 1px; border-left:none; border-right:none;  }
+.icon{float: left; width:15% ; text-align: center; }
+.cotent{  border-radius:2rpx; background-color:white; float: left;  width:50% ; text-align: center;}
+.ipt{height: 80rpx; line-height: 80rpx  }
+.btn{height: 80rpx; line-height: 80rpx}
+.fasong{   width:25% ; float: left; text-align: center; }
+.fasongbtn{font-size:20rpx; width: 80%; height: 80rpx; line-height: 80rpx}
+.request_other{ display: inline-block; background-color:white; padding: 20rpx 10rpx; border-radius:10rpx; position: relative; margin-left: 20rpx;
+  height: 200rpx; width: 400rpx;
+}
+
+.request_other .anniu{
+  display: inline-block;
+  margin-left: 50rpx;
+  margin-top:20rpx;
+  width: 120rpx;
+  height: 60rpx;
+  background-color: #33CC00;
+  border-radius: 44rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+
+.other{
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.me{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 20rpx;
+}
+.xiaoxi{
+  width: 75%;
+}
+
+
+
+@font-face {
+  font-family: "iconfont"; /* Project id 3838966 */
+  src: url('//at.alicdn.com/t/c/font_3838966_ppqni0x42l.woff2?t=1671980806886') format('woff2'),
+  url('//at.alicdn.com/t/c/font_3838966_ppqni0x42l.woff?t=1671980806886') format('woff'),
+  url('//at.alicdn.com/t/c/font_3838966_ppqni0x42l.ttf?t=1671980806886') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 42rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ren:before {
+  content: "\e604";
+  font-size: 80rpx;
+  color: #E0E0E0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

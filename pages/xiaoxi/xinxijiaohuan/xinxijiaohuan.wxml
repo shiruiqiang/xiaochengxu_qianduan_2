@@ -1,0 +1,53 @@
+
+<scroll-view  class='talk'  scroll-y="true" scroll-top="{{scrollTop}}">
+    <!--对话框-->
+    <view wx:for="{{speak}}" class="people" >
+
+        <view  class='other' >
+            <text class='headimg_other iconfont icon-ren'></text>
+            <view class='request_other'>
+                <view>通过资料初步了解，感觉您非常不错。希望交换联系方式后，进一步了解。</view>
+                <view>
+                    <view class="anniu">同意</view>
+                    <view class="anniu">拒绝</view>
+                </view>
+            </view>
+        </view>
+
+        <view class='me' wx:if="{{item.name=='me'}}">
+            <text class='headimg_me iconfont icon-ren'></text>
+            <view class='xiaoxi'>
+            <text class='speak_me' bindtap="play" data-play="{{item.say}}"  data-path="{{item.path}}">发起交换联系方式请求。</text>
+            </view>
+        </view>
+
+
+        <view  class='other'  wx:if="{{item.name=='other'}}" >
+            <text class='headimg_other iconfont icon-ren'></text>
+            <view class='xiaoxi'>
+            <text class='speak_other' bindtap="play" data-play="{{item.say}}">{{item.say}}</text>
+            </view>
+        </view>
+
+        <view class='me' wx:if="{{item.name=='me'}}">
+            <text class='headimg_me iconfont icon-ren'></text>
+            <view class='xiaoxi'>
+            <text class='speak_me' bindtap="play" data-play="{{item.say}}"  data-path="{{item.path}}">{{item.say}}</text>
+            </view>
+
+        </view>
+    </view>
+
+</scroll-view>
+<!--发送消息-->
+
+<!--<view class='send'>-->
+<!--    <view class=' iconfont {{sendicon}}  icon' bindtap="changeico" ></view>-->
+<!--    <view class='cotent' >-->
+<!--        <input wx:if="{{ipt}}" class="ipt"  bindchange='speakchange' value="{{clear}}"/>-->
+<!--        <button type="default"   bindtouchstart="audiostart"  bindtouchend="audioend" class="btn" wx:if="{{!ipt}}" > 按住说话 </button>-->
+<!--    </view>-->
+<!--    <view class="fasong">-->
+<!--        <button type="default" wx:if="{{ipt}}"  bindtap="dosend" class="fasongbtn">发送</button>-->
+<!--    </view>-->
+<!--</view>-->
