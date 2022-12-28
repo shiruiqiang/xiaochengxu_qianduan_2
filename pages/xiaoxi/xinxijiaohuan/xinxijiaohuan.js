@@ -26,6 +26,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    // this.setData({member: JSON.parse(decodeURIComponent(options.param))});
+    //
+    // if(!!this.data.member.pictureJson){
+    //   this.setData({photolist: JSON.parse(this.data.member.pictureJson)})
+    // }else{
+    //   this.setData({photolist: []})
+    // }
+
 
   },
 

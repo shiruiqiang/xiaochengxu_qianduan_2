@@ -7,9 +7,10 @@ Page({
   data: {
     curpage: "xiaoxi",
     usersList:[
-        {name:"童俊豪1",src:"http://www.tuling123.com/resources/web/v4/img/personalCen/icon40.png",time:"2022-12-25 16:15",id: 1,type: 1},
-      {name:"礼物",src:"http://www.tuling123.com/resources/web/v4/img/personalCen/icon40.png",time:"2022-12-25 16:15",id: 2,type: 2},
-      {name:"童俊豪3",src:"http://www.tuling123.com/resources/web/v4/img/personalCen/icon40.png",time:"2022-12-25 16:15",id: 3,type: 1}]
+      {name:"童俊豪1",src:"http://www.tuling123.com/resources/web/v4/img/personalCen/icon40.png",time:"2022-12-25 16:15",id: 1},
+      {name:"童俊豪2",src:"http://www.tuling123.com/resources/web/v4/img/personalCen/icon40.png",time:"2022-12-25 16:15",id: 2},
+      {name:"童俊豪3",src:"http://www.tuling123.com/resources/web/v4/img/personalCen/icon40.png",time:"2022-12-25 16:15",id: 3}
+      ]
 
   },
 
@@ -17,6 +18,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    // this.setData({member: JSON.parse(decodeURIComponent(options.param))});
+    //
+    // if(!!this.data.member.pictureJson){
+    //   this.setData({photolist: JSON.parse(this.data.member.pictureJson)})
+    // }else{
+    //   this.setData({photolist: []})
+    // }
+
+
 
   },
 
@@ -70,15 +80,10 @@ Page({
   },
   chat:function(t){
     var item = t.currentTarget.dataset.item;
-    if(item.type == 1){
-      // 交换联系方式
-      wx.navigateTo({url:"/pages/xiaoxi/xinxijiaohuan/xinxijiaohuan?param=" + encodeURIComponent(JSON.stringify(item))})
-    }else if(item.type == 2){
-      // 礼物
-      wx.navigateTo({url:"/pages/xiaoxi/liwu/liwuyemian?param=" + encodeURIComponent(JSON.stringify(item))})
-    }
+    wx.navigateTo({url:"/pages/xiaoxi/xinxijiaohuan/xinxijiaohuan?param=" + encodeURIComponent(JSON.stringify(item))})
 
   },
+
 
 
 

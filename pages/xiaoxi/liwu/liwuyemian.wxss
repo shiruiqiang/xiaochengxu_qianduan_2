@@ -85,17 +85,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-ren:before {
-  content: "\e604";
-  font-size: 70rpx;
-  color: #E0E0E0;
-}
-
-.icon-dian:before {
-  content: "\e7a5";
-  color: red;
-  font-size: 60rpx;
-}
 .icon-gift-full:before {
   content: "\e8b5";
   font-size: 55rpx;
